@@ -6,14 +6,15 @@ Creation of a simple game.
 --------------------------------------------------------------------------------------------------------------------
 GRADING
 
-Item 	Grade 	Points 	Out of 	Date 	Due
-Prelab 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus 		5 		BOC L29
-Required Functionality 	On-Time -------------------------------------------------------------------- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		35 		COB L30
-B Functionality 	On-Time -------------------------------------------------------------------- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		10 		COB L30
-A Functionality 	On-Time -------------------------------------------------------------------- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		10 		COB L30
-Use of Git / Github 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus 		10 		BOC L27
-Lab Notebook 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus ----- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		30 		COB L31
-Total 			100 	
+Item          	Gr ade                                                                                 	Points       	Out of 	    Date Due
+Prelab        	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus                     		5      		BOC L29
+Required Functionality 	On-Time-- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		35 		    COB L30
+B Functionality 	On-Time---------- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		10 		     COB L30
+A Functionality 	On-Time---------- Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		10 		    COB L30
+Use of Git / Github 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus 		     10     		BOC L27
+Lab Notebook 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus ----- 
+                          Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		                              30     		COB L31
+Total                                                                                                                      			100 	
 --------------------------------------------------------------------------------------------------------------------
 DETAILS: THE BASIC IDEA
 
