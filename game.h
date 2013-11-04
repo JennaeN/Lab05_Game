@@ -43,7 +43,7 @@ void clearPlayer(unsigned char player);
 //
 // Given a player's current position and a direction, returns an updated player position.
 //
-unsigned char movePlayer(unsigned char player, unsigned char direction);
+unsigned char movePlayer(unsigned char location, unsigned char direction);
 
 //
 // Returns true if the position passed in is the winning game position.

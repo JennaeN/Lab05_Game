@@ -13,6 +13,8 @@ unsigned char initPlayer() {
 	return 0x80;
 }
 
+void writeCommandByte(char commandByte);
+void writeDataByte(char dataByte);
 void printPlayer(unsigned char player) {
 	writeCommandByte(player);
 	writeDataByte('*');
@@ -23,40 +25,44 @@ void clearPlayer(unsigned char player) {
 	writeDataByte(' ');
 }
 
-unsigned char movePlayer(unsigned char player, unsigned char buttonPushed) {
+unsigned char movePlayer(unsigned char location, unsigned char buttonPushed) {
 
 	if (buttonPushed == 1 && location != 0x87) {
-		location += location;
-		printPlayer(); //Not yet created - going to replace the following in each if statement below
-		LCDclr;
-		writeCommandByte(location);
-		writeString(player);
+		clearPlayer(location);
+		location++;
+		printPlayer(location); //Not yet created - going to replace the following in each if statement below
+
 	}
 
 	else if (buttonPushed == 2 && (location != 0x80 || location != 0xC0)) {
-		location -= location;
-		printPlayer();
+		clearPlayer(location);
+		location--;
+		printPlayer(location);
 	}
 
 	else if (buttonPushed == 3 && location > 0x87) {
+		clearPlayer(location);
 		location = location - 0x40;
-		printPlayer();
+		printPlayer(location);
 	}
 
 	else if (buttonPushed == 4 && location < 0xC0) {
+		clearPlayer(location);
 		location = location + 0x40;
-		printPlayer();
+		printPlayer(location);
 	}
-}
 
-return player;
+
+return location;
 }
 
 char didPlayerWin(unsigned char player) {
 return player == 0xC7;
 }
 
+void LCDclr();
 void print2LineMessage(char * string1, char * string2){
+LCDclr();
 cursorToLineOne();
 writeString(string1);
 cursorToLineTwo();
