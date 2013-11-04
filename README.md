@@ -21,9 +21,11 @@ Use of Git / Github 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus 		  
 Lab Notebook 	On-Time: 0 ---- Check Minus ---- Check ---- Check Plus ----- 
                           Late: 1Day ---- 2Days ---- 3Days ---- 4+Days 		                              30     		COB L31
                           
-Total                                                                                                                      			100 	
---------------------------------------------------------------------------------------------------------------------
+Total                                                                   100 	
+
+
 DETAILS: THE BASIC IDEA
+--------------------------------------------------------------------------------------------------------------------
 
 In this game, the player will be represented by an asterisk (*), starting in the top left corner of the screen. By using push buttons, the player advances through the board. The goal of the player is to make it to the bottom right corner of the screen.
 
@@ -33,8 +35,9 @@ If the player doesn't move within 2 seconds, the game ends - display "GAME" on t
 
 To achieve A and B functionality, you'll have to add some additional features to the game.
 
----------------------------------------------------------------------------------------------------------------------
+
 REQUIRED FUNCTIONALITY
+---------------------------------------------------------------------------------------------------------------------
 
 To achieve Required Functionality, you must implement the game as described in The Basic Idea.
 
@@ -48,8 +51,9 @@ Remember, program time spent inside ISRs should be minimized! Remember to effect
 
 You must place your code under version control on git and push your repo to Github.
 
----------------------------------------------------------------------------------------------------------------------
+
 B FUNCTIONALITY
+---------------------------------------------------------------------------------------------------------------------
 
 Your game must handle button presses via interrupts! Functionality will be identical to Required.
 
@@ -89,8 +93,9 @@ void testAndRespondToButtonPush(char buttonToTest)
 
 }
 
----------------------------------------------------------------------------------------------------------------------
+
 A FUNCTIONALITY
+---------------------------------------------------------------------------------------------------------------------
 
 Mines (10pts)
 
