@@ -56,21 +56,37 @@ Your game must handle button presses via interrupts! Functionality will be ident
 Remember the strategy we discussed in class! We can initially trigger a button on the falling edge, then switch the trigger to rising edge to detect the release. Here's some sample code:
 
 
+
 void testAndRespondToButtonPush(char buttonToTest)
+
 {
+
     if (buttonToTest & P1IFG)
+
     {
+
         if (buttonToTest & P1IES)
+
         {
+
             movePlayerInResponseToButtonPush(buttonToTest);
+
             clearTimer();
+
         } else
+
         {
+
             debounce();
+
         }    
+
         P1IES ^= buttonToTest;
+
         P1IFG &= ~buttonToTest;
+
     }
+
 }
 
 ---------------------------------------------------------------------------------------------------------------------
