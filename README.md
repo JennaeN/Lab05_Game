@@ -109,3 +109,18 @@ Additional Feature (5pts)
 This game is too easy! Add an additional feature that makes the game more challenging. Be creative! Simply making the time limit shorter will not receive any credit.
 
 Note: There's the potential for 5 bonus points if you implement all of the features of A Functionality.
+
+
+
+
+TESTING
+---------------------------------------------------------------------------------------------------------------------
+
+1. Ran program to see if screen would initialize. Then continued by printing to the screen and working with buttons. 
+2. Button/string functionality began working with little effort.
+3. Discovered problems stopping the game - added B functionality code and made major changes to the layout of my code.
+4. After the code was runnable again, I had some problems with the buttons moving the player and the clock restarting. To fix these problems I had to rearrange my code so that everything was being called in the correct order.
+5. When restarting the game after a win, game over would still be shown after 2 seconds. I had to stop the clock from counting to 4 (so I set the flag equal to 5).
+6. More problem occured with the time of the game restart. In the end, I made while loops that did nothing until a button was pushed, then set if statements for when the flag was great than 4 to completely fix the code.
+7. A functionality tested by playing the game. Only 1 mine appearing, and game over/win not being detected.
+8. 
