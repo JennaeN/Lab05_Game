@@ -123,4 +123,6 @@ TESTING
 5. When restarting the game after a win, game over would still be shown after 2 seconds. I had to stop the clock from counting to 4 (so I set the flag equal to 5).
 6. More problem occured with the time of the game restart. In the end, I made while loops that did nothing until a button was pushed, then set if statements for when the flag was great than 4 to completely fix the code.
 7. A functionality tested by playing the game. Only 1 mine appearing, and game over/win not being detected.
-8. 
+8. Got 2 mines to appear by updating random in the while loop. This also helped with detecting game over/wins on the first iteration of the game.  No mines appear after the first win/loss.
+9. Detection working. Must add "BOOM!" and make the mines more random.
+10. "BOOM!" added and working properly. Mines have been made more random. A functionality working properly.
