@@ -7,6 +7,7 @@
  */
 char location = 0x80;
 char flag = 0;         // global variable to share info between main and ISR
+char increment = 0;
 
 void init_timer();
 void init_buttons() {
@@ -66,6 +67,7 @@ int main(void) {
 			print2LineMessage(you, win);
 			//Figure out some way to make the flag stay 0 here, so winner is displayed only.
 			flag = 5;
+			increment = 5;
 
 
 			while (flag > 4) {
@@ -80,6 +82,7 @@ int main(void) {
 				mine2Location = 0xC0 + random%7;
 			}
 			printMine(mine2Location);
+			increment = 0;
 		}
 
 		if (location == mine1Location || location == mine2Location){
@@ -88,9 +91,19 @@ int main(void) {
 			__delay_cycles(444444);
 		}
 
+		if (increment == 4){
+			clearPlayer(mine1Location);
+			clearPlayer(mine2Location);
+			mine1Location--;
+			mine2Location++;
+			printMine(mine1Location);
+			printMine(mine2Location);
+			increment = 0;
+		}
 		if (flag == 4) {
 			print2LineMessage(game, over);
 			flag = 5;
+			increment = 5;
 
 			while (flag > 4) {
 			}
@@ -98,6 +111,7 @@ int main(void) {
 			location = initPlayer();
 			printPlayer(location);
 			flag = 0;
+			increment = 0;
 			mine1Location = 0x81 + random%7;
 			printMine(mine1Location);
 			while(mine2Location == mine1Location || mine2Location == (mine1Location +0x40) || mine2Location == (mine1Location +0x41) || mine2Location == (mine1Location +0x3F)){
@@ -116,6 +130,7 @@ int main(void) {
 __interrupt void TIMER0_A1_ISR() {
 	TACTL &= ~TAIFG;            // clear interrupt flag
 	flag++;
+	increment ++;
 }
 
 void init_timer() {
