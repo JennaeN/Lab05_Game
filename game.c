@@ -23,6 +23,12 @@ void printPlayer(unsigned char player) {
 	writeDataByte('*');
 }
 
+//Draw the player in the specified position
+void printMine(unsigned char mine) {
+	writeCommandByte(mine);
+	writeDataByte('X');
+}
+
 //Clears the LCD screen of the old position
 void clearPlayer(unsigned char player) {
 	writeCommandByte(player);

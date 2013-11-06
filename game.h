@@ -35,6 +35,8 @@ unsigned char initPlayer();
 //
 void printPlayer(unsigned char player);
 
+
+void printMine(unsigned char mine);
 //
 // Clears the location passed in.
 //

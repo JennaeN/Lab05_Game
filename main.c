@@ -1,6 +1,7 @@
 #include <msp430.h> 
 #include "LCD.h"
 #include "game.h"
+#include "random.h"
 /*
  * main.c
  */
@@ -15,21 +16,18 @@ void init_buttons() {
 	P1IE |= BIT1 | BIT2 | BIT3 | BIT4;
 }
 
-//void restartOnButtonPush() {
-	//TACTL |= TAIE;
-	//LCDclr();
-	//location = initPlayer();
-	//printPlayer(location);
-	//flag = 0;
-//}
 
 int main(void) {
 	WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer
+
+	static const char seed = 1234;
 
 	char * you = "YOU     ";
 	char * win = "WIN!    ";
 	char * game = "GAME    ";
 	char * over = "OVER!   ";
+	char * boom = "BOOM!   ";
+	char * space = "        ";
 
 	init_timer();
 
@@ -48,32 +46,65 @@ int main(void) {
 
 	printPlayer(location);
 
+	char random = prand(seed);	//after this, random = prand(random);
+	//random = prand(random);
+	char mine1Location = 0x81 + random%7;
+	random = prand(random);
+	char mine2Location = 0xC0 + random%7;
+
+
+	printMine(mine1Location);
+	while(mine2Location == mine1Location || mine2Location == (mine1Location +0x40) || mine2Location == (mine1Location +0x41) || mine2Location == (mine1Location +0x3F)){
+		random = prand(random);
+		mine2Location = 0xC0 + random%7;
+	}
+	printMine(mine2Location);
+
 	while (1) {
-		//__interrupt void PORT1_ISR();
+
 		if (location == 0xC7) {
 			print2LineMessage(you, win);
 			//Figure out some way to make the flag stay 0 here, so winner is displayed only.
 			flag = 5;
-			//TACTL &= ~(MC1 | MC0);
-			//restartOnButtonPush();
+
 
 			while (flag > 4) {
 			}
 			LCDclr();
 			location = initPlayer();
 			printPlayer(location);
+			mine1Location = 0x81 + random%7;
+			printMine(mine1Location);
+			while(mine2Location == mine1Location || mine2Location == (mine1Location +0x40) || mine2Location == (mine1Location +0x41) || mine2Location == (mine1Location +0x3F)){
+				random = prand(random);
+				mine2Location = 0xC0 + random%7;
+			}
+			printMine(mine2Location);
 		}
+
+		if (location == mine1Location || location == mine2Location){
+			flag = 4;
+			print2LineMessage(boom, space);
+			__delay_cycles(444444);
+		}
+
 		if (flag == 4) {
 			print2LineMessage(game, over);
 			flag = 5;
-			//Used to restart game
-			//restartOnButtonPush();
+
 			while (flag > 4) {
 			}
 			LCDclr();
 			location = initPlayer();
 			printPlayer(location);
 			flag = 0;
+			mine1Location = 0x81 + random%7;
+			printMine(mine1Location);
+			while(mine2Location == mine1Location || mine2Location == (mine1Location +0x40) || mine2Location == (mine1Location +0x41) || mine2Location == (mine1Location +0x3F)){
+				random = prand(random);
+				mine2Location = 0xC0 + random%7;
+			}
+			printMine(mine2Location);
 		}
 	}
 
@@ -125,7 +156,6 @@ void testAndRespondToButtonPush(char buttonToTest) {
 				clearPlayer(location);
 				location += mod;
 				location = movePlayer(location, mod);
-				//printPlayer(location);
 				clearTimer();
 			}
 		} else {
