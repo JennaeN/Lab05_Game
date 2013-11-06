@@ -43,7 +43,7 @@ void clearPlayer(unsigned char player);
 //
 // Given a player's current position and a direction, returns an updated player position.
 //
-unsigned char movePlayer(unsigned char location, unsigned char direction);
+char movePlayer( char location, int mod);
 
 //
 // Returns true if the position passed in is the winning game position.
@@ -61,5 +61,7 @@ void generateMines(unsigned char mines[NUM_MINES]);
 void printMines(unsigned char mines[NUM_MINES]);
 */
 
+char movePlayerInResponseToButtonPush(unsigned char buttonToTest);
+void debounce();
 
 #endif /* GAME_H_ */
