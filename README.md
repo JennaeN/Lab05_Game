@@ -126,3 +126,14 @@ TESTING
 8. Got 2 mines to appear by updating random in the while loop. This also helped with detecting game over/wins on the first iteration of the game.  No mines appear after the first win/loss.
 9. Detection working. Must add "BOOM!" and make the mines more random.
 10. "BOOM!" added and working properly. Mines have been made more random. A functionality working properly.
+
+
+OBSERVATIONS/CONCLUSIONS
+------------------------------------------------------------------------------------------------------------------
+
+Using interrupts is very helpful. It makes the code easier to understand and easier to work with.  
+During this lab, I learned the importance of testing piece by piece and writing good psuedocode. By doing this, 
+functionality came quickly. The first day I was able to move the player and win the game.
+I also learned to take a step back when getting confused by code. If you are looking too closely at any one part 
+of it, then you won't see the big problems. 
+Overall, I thought this was a good lab.
