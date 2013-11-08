@@ -137,3 +137,9 @@ functionality came quickly. The first day I was able to move the player and win 
 I also learned to take a step back when getting confused by code. If you are looking too closely at any one part 
 of it, then you won't see the big problems. 
 Overall, I thought this was a good lab.
+
+
+DOCUMENTATION
+-----------------------------------------------------------------------------------------------------------------
+
+I received a lot of instructor help.  
